@@ -22,6 +22,7 @@ class Produtos extends Component {
                 })
             })
     }
+        
     renderCategoria(cat){
         return(
             <li key={cat.id}>
@@ -39,7 +40,6 @@ class Produtos extends Component {
                 <ul>
                 {categorias.map(this.renderCategoria)}
                 </ul>
-                {JSON.stringify(this.state.categorias)}
             </div>
         <div className='col-md-10'>
         <h1>Produtos</h1>
