@@ -11,7 +11,7 @@ class Produtos extends Component {
             categorias: []
 
         }
-
+        this.handleNewCategoria = this.handleNewCategoria.bind(this)
     }
     componentDidMount(){
         axios
@@ -30,6 +30,20 @@ class Produtos extends Component {
             </li>
         )
     }
+    handleNewCategoria(key){
+        if(key.keycode === 13){
+        axios
+            .post('http://localhost:3001/categorias',
+            {
+                categoria: this.refs.categoria.value
+            })
+            .then(res=> {
+                this.setState({
+                    categorias: res.data
+                })
+            })
+        }
+    }
     render (){
         const { match } = this.props
         const { categorias } = this.state
@@ -40,6 +54,13 @@ class Produtos extends Component {
                 <ul>
                 {categorias.map(this.renderCategoria)}
                 </ul>
+                <div className='well'>
+                    <input
+                    onKeyUp={this.handleNewCategoria} 
+                    type='text'
+                    ref='categoria'
+                    placeholder='Nova Categoria'/>
+                </div>
             </div>
         <div className='col-md-10'>
         <h1>Produtos</h1>

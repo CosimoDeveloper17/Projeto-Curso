@@ -23,9 +23,15 @@
           "id": 1,
           "categoria":"Limpeza"
       },
+
       {
           "id": 2,
           "categoria":"Alimentos"
+      },
+
+      {
+          "id": 3,
+          "categoria":"Utilidades"
       }
   ]
 }
